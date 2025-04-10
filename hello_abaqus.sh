@@ -5,7 +5,7 @@
 #SBATCH -N 1
 #SBATCH --exclusive
 
-#SBATCH --ntasks-per-node=10
+#SBATCH --ntasks-per-node=20
 #SBATCH -J Hello_Abaqus_HPC_World
 
 #SBATCH -o process_%j.out
@@ -16,13 +16,13 @@
 
 cat $0
 
-cp -p elastic_console_beam.inp $SNIC_TMP
+cp -p new_input.inp $SNIC_TMP
 
 cd $SNIC_TMP
 
 module add abaqus/V6R2023x
 
-abaqus job=elastic_console_beam memory=60000MB cpus=4 scratch=. interactive
+abaqus job=new_input memory=60000MB cpus=20 scratch=. interactive
 
 cp -p *.* $SLURM_SUBMIT_DIR
 
