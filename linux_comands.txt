@@ -2,7 +2,7 @@ pwd // print working directory
 cd //  change directory
 ls //  list files in current directory
 squeue // show slurm queue
+squeue -u user_name // check your job
 sbatch sbatch_filnamee.sub // submit job to slurm queue
-sbatch -u user_name // check your job
 cd ~ // change directory to root directory
 
