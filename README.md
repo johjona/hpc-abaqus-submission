@@ -86,7 +86,7 @@ or
 ```
 sbatch hello_abaqus_output.sh
 ```
-If you then navigate into this folder with
+If you submit the latter job, you can follow the abaqus time-steps (that usually are printed in the .sta file) with the following approach: Navigate into the ```/logs/``` folder with:
 ```
 cd ../logs/
 ```
