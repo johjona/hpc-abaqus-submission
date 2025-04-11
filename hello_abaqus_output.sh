@@ -27,8 +27,16 @@ cd $SNIC_TMP
 
 (
 	while true; do
-		[ -f ${JOBNAME}.sta] && cp ${JOBNAME}.sta $LOGDIR/
-		sleep 30
+		ls -l $SNIC_TMP
+		echo ${JOBNAME}.sta
+		if [ -e ${JOBNAME}.sta]; then
+			echo "Copying ${JOBNAME}.sta to $LOGDIR/"
+			cp ${JOBNAME}.sta $LOGDIR/
+			
+		else
+			echo "No sta-file found"
+		fi
+		sleep 5
 	done
 ) &
 
