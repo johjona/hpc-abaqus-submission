@@ -12,9 +12,8 @@
 #SBATCH -e process_%j.err
 
 #SBATCH --mail-user=johannes.jonasson@construction.lth.se
-#SBATCH --mail-type=START,END
 
-LOGDIR=home/jo1623jos/myDir/logs/
+LOGDIR=/home/jo1623jos/myDir/logs/
 JOBNAME=new_input
 
 cat $0
@@ -27,12 +26,9 @@ cd $SNIC_TMP
 
 (
 	while true; do
-		ls -l $SNIC_TMP
-		echo ${JOBNAME}.sta
-		if [ -e ${JOBNAME}.sta]; then
+		if [ -f ${JOBNAME}.sta ]; then
 			echo "Copying ${JOBNAME}.sta to $LOGDIR/"
 			cp ${JOBNAME}.sta $LOGDIR/
-			
 		else
 			echo "No sta-file found"
 		fi
