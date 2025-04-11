@@ -97,7 +97,7 @@ If we then use
 ```
 tail -f new_input.sta
 ```
-we get a real-time continous printing of the sta-file which contains the information from every time-step during the simulation.
+we get a real-time continous printing of the sta-file which contains the information from every time-step as the simulation progresses.
 
 
 
