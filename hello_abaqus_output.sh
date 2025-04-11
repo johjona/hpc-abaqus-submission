@@ -1,4 +1,4 @@
-#!/bin/bash
+pHL96lJvvKAWlmpHL96lJvvKAWlm#!/bin/bash
 #SBATCH -t 1:00:00
 
 # Number of nodes
@@ -14,7 +14,7 @@
 #SBATCH --mail-user=johannes.jonasson@construction.lth.se
 #SBATCH --mail-type=START,END
 
-LOGDIR = home/jo1623jos/myDir/logs
+LOGDIR = home/jo1623jos/myDir/logs/
 JOBNAME = new_input
 
 cat $0
@@ -27,7 +27,7 @@ cd $SNIC_TMP
 
 (
 	while true; do
-		cp ${JOBNAME}.sta $LOGDIR/ 2>/dev/null
+		[ -f ${JOBNAME}.sta] && cp ${JOBNAME}.sta $LOGDIR/
 		sleep 30
 	done
 ) &
