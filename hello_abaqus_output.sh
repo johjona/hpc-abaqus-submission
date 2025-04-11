@@ -1,4 +1,4 @@
-pHL96lJvvKAWlmpHL96lJvvKAWlm#!/bin/bash
+#!/bin/bash
 #SBATCH -t 1:00:00
 
 # Number of nodes
@@ -14,14 +14,14 @@ pHL96lJvvKAWlmpHL96lJvvKAWlm#!/bin/bash
 #SBATCH --mail-user=johannes.jonasson@construction.lth.se
 #SBATCH --mail-type=START,END
 
-LOGDIR = home/jo1623jos/myDir/logs/
-JOBNAME = new_input
+LOGDIR=home/jo1623jos/myDir/logs/
+JOBNAME=new_input
 
 cat $0
 
 cp -p new_input.inp $SNIC_TMP
 
-mkdir -p $LOGDIR
+mkdir -p logs
 
 cd $SNIC_TMP
 
@@ -32,7 +32,7 @@ cd $SNIC_TMP
 	done
 ) &
 
-SYNC_PID = $!
+SYNC_PID=$!
 
 module add abaqus/V6R2023x
 
