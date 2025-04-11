@@ -14,17 +14,30 @@
 #SBATCH --mail-user=johannes.jonasson@construction.lth.se
 #SBATCH --mail-type=START,END
 
+LOGDIR = home/jo1623jos/myDir/logs
+JOBNAME = new_input
+
 cat $0
 
 cp -p new_input.inp $SNIC_TMP
 
-mkdir -p /home/jo1623jos/myDir/logs
+mkdir -p $LOGDIR
 
 cd $SNIC_TMP
 
+(
+	while true; do
+		cp ${JOBNAME}.sta $LOGDIR/ 2>/dev/null
+		sleep 30
+	done
+) &
+
+SYNC_PID = $!
+
 module add abaqus/V6R2023x
 
-abaqus job=new_input memory=60000MB cpus=20 scratch=. interactive > /home/jo1623jos/myDir/logs/myjobfile.out 2>&1
+abaqus job=new_input memory=60000MB cpus=20 scratch=. interactive
 
 cp -p *.* $SLURM_SUBMIT_DIR
 
+kill $SYNC_PID
