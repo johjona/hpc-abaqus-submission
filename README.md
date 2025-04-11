@@ -78,7 +78,15 @@ When the job is finished slurm will output a file ```slurm-slurm_job_id.out```. 
 
 The submission of an Abaqus job is slightly more convoluted, and we need to specify more things than we did for the "Hello world"-script. 
 
-There are two abaqus scipts. The first one submits a linear elastic analaysis of a console beam. The second analysis is a nonlinear analysis of a beam that undergoes fracture. This batch script also includes some code which continously copies the information in the .sta file to the /logs/. If you navigate into this folder with
+There are two abaqus scipts. The first one submits a linear elastic analaysis of a console beam. The second analysis is a nonlinear analysis of a beam that undergoes fracture. This batch script also includes some code which continously copies the information in the .sta file to the /logs/. Submit either of the jobs with
+```
+sbatch hello_abaqus.sh
+```
+or 
+```
+sbatch hello_abaqus_output.sh
+```
+If you then navigate into this folder with
 ```
 cd ../logs/
 ```
