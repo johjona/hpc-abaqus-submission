@@ -16,13 +16,13 @@
 
 cat $0
 
-cp -p new_input.inp $SNIC_TMP
+cp -p elastic_console_beam.inp $SNIC_TMP
 
 cd $SNIC_TMP
 
 module add abaqus/V6R2023x
 
-abaqus job=new_input memory=60000MB cpus=20 scratch=. interactive
+abaqus job=elastic_console_beam memory=60000MB cpus=20 scratch=. interactive
 
 cp -p *.* $SLURM_SUBMIT_DIR
 
